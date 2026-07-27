@@ -1,106 +1,153 @@
-import React from 'react';
-import { Youtube, Instagram, Facebook, ExternalLink, Heart, MessageCircle } from 'lucide-react';
-import { DOCTOR_INFO, SOCIAL_POSTERS } from '../data/doctorData';
+import React, { useEffect, useRef } from 'react';
+import { Youtube, Instagram, Facebook, ExternalLink } from 'lucide-react';
+import { DOCTOR_INFO } from '../data/doctorData';
 
-const CHANNELS = [
-  {
-    key: 'youtube',
-    href: DOCTOR_INFO.socialLinks.youtubeChannel,
-    label: 'YouTube Channel',
-    handle: 'Dr Prashantkumar Ortho Care',
-    Icon: Youtube,
-    tone: 'youtube'
-  },
-  {
-    key: 'instagram',
-    href: DOCTOR_INFO.socialLinks.instagram,
-    label: 'Instagram',
-    handle: '@dr.prashantkumar23',
-    Icon: Instagram,
-    tone: 'instagram'
-  },
-  {
-    key: 'facebook',
-    href: DOCTOR_INFO.socialLinks.facebook,
-    label: 'Facebook',
-    handle: 'Dr Prashantkumar Orthopedics',
-    Icon: Facebook,
-    tone: 'facebook'
-  }
-];
+const INSTAGRAM_URL = DOCTOR_INFO.socialLinks.instagram;
+const FACEBOOK_URL = DOCTOR_INFO.socialLinks.facebook;
+const YOUTUBE_CHANNEL = DOCTOR_INFO.socialLinks.youtubeChannel;
+const UPLOADS_PLAYLIST = 'UUw9E_H95SrJf4yKK0tag1rw';
 
 export default function SocialFeedSection() {
+  const fbRef = useRef(false);
+  const instaRef = useRef(false);
+
+  useEffect(() => {
+    // Load Facebook SDK once
+    if (!fbRef.current) {
+      fbRef.current = true;
+      if (!document.getElementById('facebook-jssdk')) {
+        const script = document.createElement('script');
+        script.id = 'facebook-jssdk';
+        script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0';
+        script.async = true;
+        script.defer = true;
+        script.crossOrigin = 'anonymous';
+        document.body.appendChild(script);
+      }
+    }
+
+    // Load Instagram embed script once
+    if (!instaRef.current) {
+      instaRef.current = true;
+      if (!document.getElementById('instagram-embed-js')) {
+        const script = document.createElement('script');
+        script.id = 'instagram-embed-js';
+        script.src = 'https://www.instagram.com/embed.js';
+        script.async = true;
+        document.body.appendChild(script);
+      } else if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+    }
+  }, []);
+
   return (
     <section id="social" className="section-padding social-section">
       <div className="container">
         <header className="section-header">
-          <p className="section-kicker">Official Channels</p>
-          <h2>Health education across YouTube, Instagram & Facebook</h2>
+          <p className="section-kicker">Follow & Watch Live</p>
+          <h2>Live feeds from YouTube, Instagram & Facebook</h2>
           <p className="section-lead">
-            Follow Dr Prashantkumar for recovery updates, clinic posters, and live patient education.
+            Watch real patient education, surgical highlights, and health tips — directly from Dr Prashantkumar's official channels.
           </p>
         </header>
 
+        {/* Channel follow buttons */}
         <div className="social-channels">
-          {CHANNELS.map(({ key, href, label, handle, Icon, tone }) => (
-            <a
-              key={key}
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              className={`social-channel social-channel--${tone}`}
-            >
-              <Icon size={28} fill={tone === 'youtube' || tone === 'facebook' ? 'currentColor' : 'none'} />
-              <div>
-                <strong>{label}</strong>
-                <span>{handle}</span>
-              </div>
-              <ExternalLink size={18} />
-            </a>
-          ))}
+          <a href={YOUTUBE_CHANNEL} target="_blank" rel="noreferrer" className="social-channel social-channel--youtube">
+            <Youtube size={28} fill="currentColor" />
+            <div>
+              <strong>YouTube</strong>
+              <span>Dr Prashantkumar Ortho Care</span>
+            </div>
+            <ExternalLink size={18} />
+          </a>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="social-channel social-channel--instagram">
+            <Instagram size={28} />
+            <div>
+              <strong>Instagram</strong>
+              <span>@dr.prashantkumar23</span>
+            </div>
+            <ExternalLink size={18} />
+          </a>
+          <a href={FACEBOOK_URL} target="_blank" rel="noreferrer" className="social-channel social-channel--facebook">
+            <Facebook size={28} fill="currentColor" />
+            <div>
+              <strong>Facebook</strong>
+              <span>Dr Prashantkumar Orthopedics</span>
+            </div>
+            <ExternalLink size={18} />
+          </a>
         </div>
 
-        <div className="social-grid">
-          {SOCIAL_POSTERS.map((poster) => (
-            <article key={poster.id} className="social-post">
-              <header className="social-post-head">
-                <div className={`social-avatar social-avatar--${poster.platformIcon}`}>
-                  {poster.platformIcon === 'instagram' && <Instagram size={16} />}
-                  {poster.platformIcon === 'youtube' && <Youtube size={16} fill="currentColor" />}
-                  {poster.platformIcon === 'facebook' && <Facebook size={16} fill="currentColor" />}
-                </div>
-                <div>
-                  <strong>{poster.handle}</strong>
-                  <span>{poster.platform}</span>
-                </div>
-                <a href={poster.link} target="_blank" rel="noreferrer" aria-label="Open post">
-                  <ExternalLink size={16} />
-                </a>
-              </header>
+        {/* Live embed grid */}
+        <div className="social-embed-grid">
 
-              <div className="social-post-media">
-                <img src={poster.image} alt={poster.title} />
+          {/* YouTube Live Playlist */}
+          <div className="social-embed-card">
+            <div className="social-embed-label">
+              <Youtube size={18} fill="currentColor" color="#c4302b" />
+              <span>YouTube — Latest Videos</span>
+            </div>
+            <div className="social-embed-frame social-embed-frame--yt">
+              <iframe
+                title="Dr Prashantkumar YouTube Playlist"
+                src={`https://www.youtube.com/embed/videoseries?list=${UPLOADS_PLAYLIST}&rel=0`}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
+          {/* Instagram Embed */}
+          <div className="social-embed-card">
+            <div className="social-embed-label">
+              <Instagram size={18} color="#e1306c" />
+              <span>Instagram — Posts & Reels</span>
+            </div>
+            <div className="social-embed-frame social-embed-frame--insta">
+              <iframe
+                title="Dr Prashantkumar Instagram Feed"
+                src={`https://www.instagram.com/dr.prashantkumar23/embed`}
+                loading="lazy"
+                allowTransparency="true"
+                allow="encrypted-media"
+                style={{ border: 0, width: '100%', height: '100%', minHeight: '480px' }}
+              />
+            </div>
+          </div>
+
+          {/* Facebook Page Plugin */}
+          <div className="social-embed-card social-embed-card--fb">
+            <div className="social-embed-label">
+              <Facebook size={18} fill="currentColor" color="#1877f2" />
+              <span>Facebook — Page Feed</span>
+            </div>
+            <div className="social-embed-frame social-embed-frame--fb">
+              <div id="fb-root"></div>
+              <div
+                className="fb-page"
+                data-href="https://www.facebook.com/share/1C22HRDbm8/"
+                data-tabs="timeline"
+                data-width=""
+                data-height="500"
+                data-small-header="true"
+                data-adapt-container-width="true"
+                data-hide-cover="false"
+                data-show-facepile="true"
+              >
+                <blockquote cite="https://www.facebook.com/share/1C22HRDbm8/" className="fb-xfbml-parse-ignore">
+                  <a href="https://www.facebook.com/share/1C22HRDbm8/" target="_blank" rel="noreferrer">
+                    Dr Prashantkumar Orthopedics
+                  </a>
+                </blockquote>
               </div>
+            </div>
+          </div>
 
-              <div className="social-post-body">
-                <h3>{poster.title}</h3>
-                <p>{poster.caption}</p>
-              </div>
-
-              <footer className="social-post-foot">
-                <span>
-                  <Heart size={15} fill="currentColor" /> {poster.likes}
-                </span>
-                <span>
-                  <MessageCircle size={15} /> {poster.comments}
-                </span>
-                <a href={poster.link} target="_blank" rel="noreferrer">
-                  View post <ExternalLink size={13} />
-                </a>
-              </footer>
-            </article>
-          ))}
         </div>
+
       </div>
     </section>
   );
