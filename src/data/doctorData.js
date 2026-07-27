@@ -10,9 +10,9 @@ export const DOCTOR_INFO = {
   satisfactionRate: "99.4%",
   socialLinks: {
     youtubeChannel: "https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw",
-    facebook: "https://www.facebook.com/share/18uZw5Ychr/?mibextid=wwXIfr",
-    instagram: "https://www.instagram.com/vegacurre/",
-    whatsapp: "https://wa.me/919353636227"
+    facebook: "https://www.facebook.com/share/1C22HRDbm8/?mibextid=wwXIfr",
+    instagram: "https://www.instagram.com/dr.prashantkumar23",
+    whatsapp: "https://wa.me/916364123431"
   },
   roles: [
     "Director, Vega Curre Multispeciality Clinic (Founded Nov 2024)",
@@ -96,7 +96,7 @@ export const DOCTOR_INFO = {
     addressLine2: "Bhuvaneswari Nagar, Dasarahalli Main Road",
     addressLine3: "Hebbal Kempapura, Bengaluru – 560024",
     location: "Vega Curre Multispeciality Clinic, Hebbal Kempapura, Bengaluru",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Vega+Curre+Multispeciality+Clinic+Hebbal+Kempapura+Bengaluru",
+    mapsUrl: "https://maps.app.goo.gl/AWnwvQAfmFMe7ax87",
     opdHours: "Mon - Sat: 9:00 AM - 1:00 PM | 4:30 PM - 8:00 PM"
   },
   images: {
@@ -303,11 +303,11 @@ export const SOCIAL_POSTERS = [
     id: "poster-1",
     platform: "Instagram",
     platformIcon: "instagram",
-    handle: "@vegacurre",
+    handle: "@dr.prashantkumar23",
     image: "/Images/clinic-opd.jpg",
     title: "Knee Arthritis Awareness & Early Prevention",
-    caption: "Don't ignore persistent morning knee stiffness. Early assessment, strengthening and appropriate joint care may help manage symptoms and support joint function. Follow @vegacurre for patient education.",
-    link: "https://www.instagram.com/vegacurre?igsh=aGVsYWdyNGZ2OGo4&utm_source=qr",
+    caption: "Don't ignore persistent morning knee stiffness. Early assessment, strengthening and appropriate joint care may help manage symptoms and support joint function. Follow @dr.prashantkumar23 for patient education.",
+    link: "https://www.instagram.com/dr.prashantkumar23",
     likes: "1.2k",
     comments: "84"
   },
@@ -319,7 +319,7 @@ export const SOCIAL_POSTERS = [
     image: "/Images/doctor-clinical-team.jpg",
     title: "Post-TKR mobility milestone poster",
     caption: "A patient story about mobilisation after Total Knee Replacement. Walking milestones and pain levels vary by procedure, health, rehabilitation and individual response.",
-    link: "https://www.facebook.com/share/18uZw5Ychr/?mibextid=wwXIfr",
+    link: "https://www.facebook.com/share/1C22HRDbm8/?mibextid=wwXIfr",
     likes: "2.4k",
     comments: "142"
   },
@@ -339,11 +339,11 @@ export const SOCIAL_POSTERS = [
     id: "poster-4",
     platform: "Instagram",
     platformIcon: "instagram",
-    handle: "@vegacurre",
+    handle: "@dr.prashantkumar23",
     image: "/Images/robotic-knee.png",
     title: "Vega Curre Clinic Health Camp Poster",
     caption: "Free Bone Density (BMD) & Joint Consultation Camp at Amruthnagar & Rachenahalli Lake organized by Vega Curre Multispeciality Clinic team.",
-    link: "https://www.instagram.com/vegacurre/",
+    link: "https://www.instagram.com/dr.prashantkumar23",
     likes: "1.8k",
     comments: "96"
   }
@@ -575,6 +575,6 @@ export const FAQS = [
   {
     category: "Social Media & Education",
     question: "Where can I watch Dr Prashantkumar's surgical lectures and posters?",
-    answer: "You can subscribe to his YouTube Channel 'Dr Prashantkumar Ortho Care' (https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw) or follow @vegacurre on Instagram and Facebook for health posters and live video updates."
+    answer: "You can subscribe to his YouTube Channel 'Dr Prashantkumar Ortho Care' (https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw) or follow @dr.prashantkumar23 on Instagram and Facebook for health posters and live video updates."
   }
 ];

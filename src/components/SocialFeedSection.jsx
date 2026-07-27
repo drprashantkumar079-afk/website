@@ -15,7 +15,7 @@ const CHANNELS = [
     key: 'instagram',
     href: DOCTOR_INFO.socialLinks.instagram,
     label: 'Instagram',
-    handle: '@vegacurre',
+    handle: '@dr.prashantkumar23',
     Icon: Instagram,
     tone: 'instagram'
   },
@@ -23,7 +23,7 @@ const CHANNELS = [
     key: 'facebook',
     href: DOCTOR_INFO.socialLinks.facebook,
     label: 'Facebook',
-    handle: 'Dr Prashantkumar Ortho',
+    handle: 'Dr Prashantkumar Orthopedics',
     Icon: Facebook,
     tone: 'facebook'
   }
