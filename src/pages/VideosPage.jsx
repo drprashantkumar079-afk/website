@@ -1,6 +1,7 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import VideosSection from '../components/VideosSection';
+import SocialFeedSection from '../components/SocialFeedSection';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 export default function VideosPage() {
@@ -9,6 +10,7 @@ export default function VideosPage() {
   return (
     <main>
       <VideosSection onSelectVideo={(v) => setSelectedVideo(v)} />
+      <SocialFeedSection />
     </main>
   );
 }
