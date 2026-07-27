@@ -83,23 +83,6 @@ export default function SocialFeedSection() {
         {/* Live embed grid */}
         <div className="social-embed-grid">
 
-          {/* YouTube Live Playlist */}
-          <div className="social-embed-card">
-            <div className="social-embed-label">
-              <Youtube size={18} fill="currentColor" color="#c4302b" />
-              <span>YouTube — Latest Videos</span>
-            </div>
-            <div className="social-embed-frame social-embed-frame--yt">
-              <iframe
-                title="Dr Prashantkumar YouTube Playlist"
-                src={`https://www.youtube.com/embed/videoseries?list=${UPLOADS_PLAYLIST}&rel=0`}
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-          </div>
-
           {/* Instagram Embed */}
           <div className="social-embed-card">
             <div className="social-embed-label">

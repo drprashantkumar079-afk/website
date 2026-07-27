@@ -3788,7 +3788,7 @@ img[loading="lazy"] {
 }
 
 .social-embed-card--fb {
-  grid-column: 1 / -1;
+  grid-column: auto;
 }
 
 .social-embed-label {
