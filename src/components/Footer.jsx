@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Clock, Calendar, ArrowUp, ShieldCheck, Heart, ExternalLink, Youtube, Instagram, Facebook, MessageSquare } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Calendar, ArrowUp, ShieldCheck, Heart, ExternalLink, Youtube, Instagram, Facebook, Linkedin, MessageSquare } from 'lucide-react';
 import { DOCTOR_INFO } from '../data/doctorData';
 
 export default function Footer({ onOpenAppointment }) {
@@ -128,6 +128,25 @@ export default function Footer({ onOpenAppointment }) {
                 title="WhatsApp Direct Consult"
               >
                 <MessageSquare size={20} />
+              </a>
+
+              <a 
+                href={DOCTOR_INFO.socialLinks.linkedin} 
+                target="_blank" 
+                rel="noreferrer"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: 'rgba(10, 102, 194, 0.2)',
+                  color: '#0a66c2',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                title="LinkedIn Profile"
+              >
+                <Linkedin size={20} fill="currentColor" strokeWidth={0} aria-hidden="true" />
               </a>
             </div>
 

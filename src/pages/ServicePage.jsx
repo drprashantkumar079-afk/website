@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useOutletContext, useParams, Navigate } from 'react-router-dom';
+import { Link, useOutletContext, useLocation, Navigate } from 'react-router-dom';
 import {
   CheckCircle2, Calendar, MessageCircle, Phone, MapPin, ArrowLeft, ChevronRight, Clock3
 } from 'lucide-react';
@@ -17,7 +17,8 @@ const SLUG_TO_KEY = {
 };
 
 export default function ServicePage() {
-  const { slug } = useParams();
+  const location = useLocation();
+  const slug = location.pathname.replace(/^\//, '');
   const { openAppointment } = useOutletContext();
   const dataKey = SLUG_TO_KEY[slug];
   const page = dataKey ? CLINICAL_PAGES_DATA[dataKey] : null;
