@@ -4030,3 +4030,192 @@ img[loading="lazy"] {
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Social Feed Section (Videos page - reliable embeds) ── */
+.social-feed-youtube {
+  margin-top: 2.5rem;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.social-feed-yt-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.social-feed-yt-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.social-embed-follow {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-teal);
+  text-decoration: none;
+}
+
+.social-feed-insta {
+  margin-top: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+.insta-grid-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: block;
+}
+
+.insta-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.insta-grid-item:hover img {
+  transform: scale(1.05);
+}
+
+.insta-reel-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.insta-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.insta-grid-item:hover .insta-grid-overlay {
+  opacity: 1;
+}
+
+.social-feed-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.85rem;
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-top: 1px solid var(--border-light);
+  transition: background 0.2s ease;
+}
+
+.social-feed-more:hover {
+  background: var(--bg-light);
+}
+
+.social-feed-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-feed-fb-card,
+.social-feed-linkedin-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.fb-card-body {
+  padding: 0;
+}
+
+.fb-card-cover {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.fb-card-info {
+  padding: 1.25rem;
+}
+
+.fb-card-info strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+
+.fb-card-info p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 0.15rem;
+}
+
+.fb-card-meta {
+  font-size: 0.8rem !important;
+  color: var(--text-light) !important;
+  margin-bottom: 1rem !important;
+}
+
+.fb-card-btn {
+  font-size: 0.85rem;
+  padding: 0.55rem 1rem;
+  color: #1877f2 !important;
+  border-color: #1877f2 !important;
+}
+
+.fb-card-btn:hover {
+  background: #1877f2 !important;
+  color: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .social-feed-bottom {
+    grid-template-columns: 1fr;
+  }
+  .insta-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
