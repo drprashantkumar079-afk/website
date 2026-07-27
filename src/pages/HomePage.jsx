@@ -8,6 +8,7 @@ import AboutTeaser from '../components/AboutTeaser';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FinalCtaBand from '../components/FinalCtaBand';
 import HomepageHighlights from '../components/HomepageHighlights';
+import SocialStrip from '../components/SocialStrip';
 import ScrollReveal from '../components/ScrollReveal';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import { CONDITIONS, CONDITION_ARTICLES } from '../data/conditionBlogs';
@@ -77,6 +78,11 @@ export default function HomePage() {
       {/* Social proof */}
       <ScrollReveal variant="fade-up" delay={100}>
         <TestimonialsSection />
+      </ScrollReveal>
+
+      {/* Social platforms — short & sweet */}
+      <ScrollReveal variant="fade-up" delay={100}>
+        <SocialStrip />
       </ScrollReveal>
 
       {/* Final CTA */}
