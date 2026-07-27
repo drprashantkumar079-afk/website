@@ -11,7 +11,9 @@ export const DOCTOR_INFO = {
   socialLinks: {
     youtubeChannel: "https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw",
     facebook: "https://www.facebook.com/share/1C22HRDbm8/?mibextid=wwXIfr",
+    facebookPage: "https://www.facebook.com/dr.prashantkumar23",
     instagram: "https://www.instagram.com/dr.prashantkumar23",
+    linkedin: "https://www.linkedin.com/in/dr-prashantkumar-n-d-200094a0/",
     whatsapp: "https://wa.me/916364123431"
   },
   roles: [

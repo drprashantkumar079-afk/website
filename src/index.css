@@ -3773,6 +3773,14 @@ img[loading="lazy"] {
 }
 
 /* ── Social Embed Grid (live feeds from YouTube, Instagram, Facebook) ── */
+.social-channels--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.social-channel--linkedin {
+  background: linear-gradient(135deg, #0a66c2, #004182);
+}
+
 .social-embed-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3831,6 +3839,18 @@ img[loading="lazy"] {
   border: 0;
 }
 
+.social-embed-frame--insta-feed {
+  padding: 1rem;
+  min-height: 500px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.social-embed-frame--insta-feed .instagram-media {
+  margin: 0 auto !important;
+}
+
 .social-embed-frame--fb {
   min-height: 500px;
   padding: 1rem;
@@ -3852,7 +3872,77 @@ img[loading="lazy"] {
     grid-column: auto;
   }
   .social-embed-frame--insta,
+  .social-embed-frame--insta-feed,
   .social-embed-frame--fb {
     min-height: 420px;
+  }
+  .social-channels--4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* LinkedIn profile card */
+.social-embed-linkedin {
+  margin-top: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.linkedin-card {
+  padding: 1.5rem;
+}
+
+.linkedin-card-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.linkedin-card-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0a66c2;
+}
+
+.linkedin-card-info h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.linkedin-card-info p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.15rem;
+}
+
+.linkedin-card-org {
+  font-weight: 600;
+  color: var(--accent-teal) !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.linkedin-card-btn {
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+  color: #0a66c2 !important;
+  border-color: #0a66c2 !important;
+}
+
+.linkedin-card-btn:hover {
+  background: #0a66c2 !important;
+  color: #fff !important;
+}
+
+@media (max-width: 640px) {
+  .social-channels--4 {
+    grid-template-columns: 1fr;
+  }
+  .linkedin-card-inner {
+    flex-direction: column;
+    text-align: center;
   }
 }
