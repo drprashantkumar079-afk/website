@@ -1,0 +1,21 @@
+{
+  "name": "Dr Prashantkumar - Orthopedic Surgeon",
+  "short_name": "Dr PK Ortho",
+  "description": "Senior Orthopedic & Joint Replacement Surgeon with 15+ years of experience at Vega Curre Clinic, Bengaluru", 
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3f6f9",
+  "theme_color": "#0c4a6e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/Images/doctor-portrait-coat.jpg",
+      "sizes": "any",
+      "type": "image/jpeg"
+    }
+  ]
+}
