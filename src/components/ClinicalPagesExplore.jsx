@@ -204,7 +204,7 @@ export default function ClinicalPagesExplore({ onOpenAppointment }) {
                     Direct OPD Appointment Lines
                   </div>
                   <div style={{ fontSize: '1.3rem', fontWeight: '800', color: '#ffffff', marginBottom: '0.75rem' }}>
-                    +91 93536 36227 / +91 63641 23431
+                    +91 63641 23431
                   </div>
                   <p style={{ fontSize: '0.88rem', color: '#cbd5e1', marginBottom: '1.25rem' }}>
                     Consult Dr Prashantkumar at Vega Curre Clinic or leading visiting hospital centers (Manipal, Sparsh, HOSMAT).

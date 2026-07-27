@@ -89,9 +89,8 @@ export const DOCTOR_INFO = {
     }
   ],
   contacts: {
-    phonePrimary: "+91 93536 36227",
-    phoneSecondary: "+91 63641 23431",
-    whatsapp: "919353636227",
+    phonePrimary: "+91 63641 23431",
+    whatsapp: "916364123431",
     email: "vegacurre@gmail.com",
     addressLine1: "2nd Floor, Shop No. 24 & 25, 3rd A Cross",
     addressLine2: "Bhuvaneswari Nagar, Dasarahalli Main Road",
@@ -561,7 +560,7 @@ export const FAQS = [
   {
     category: "Joint Replacement",
     question: "Where can I consult Dr Prashantkumar for Knee or Hip Replacement?",
-    answer: "Dr Prashantkumar is the Founder & Director of Vega Curre Multispeciality Clinic (Bengaluru) and serves as a Visiting Senior Consultant Surgeon at Manipal Hospital, Sparsh Hospital, and HOSMAT Hospital in Bengaluru. Appointments can be scheduled by calling +91 93536 36227 or +91 63641 23431."
+    answer: "Dr Prashantkumar is the Founder & Director of Vega Curre Multispeciality Clinic (Bengaluru) and serves as a Visiting Senior Consultant Surgeon at Manipal Hospital, Sparsh Hospital, and HOSMAT Hospital in Bengaluru. Appointments can be scheduled by calling +91 63641 23431."
   },
   {
     category: "Joint Replacement",

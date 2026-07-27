@@ -49,7 +49,7 @@ export default class ErrorBoundary extends React.Component {
               Refresh Page
             </button>
             <a
-              href="tel:+919353636227"
+              href="tel:+916364123431"
               style={{
                 padding: '0.75rem 1.5rem',
                 borderRadius: '999px',

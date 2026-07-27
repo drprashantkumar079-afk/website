@@ -193,9 +193,6 @@ export default function Footer({ onOpenAppointment }) {
                   <a href={`tel:${DOCTOR_INFO.contacts.phonePrimary}`} style={{ color: '#ffffff', textDecoration: 'none', fontWeight: '700' }}>
                     {DOCTOR_INFO.contacts.phonePrimary}
                   </a>
-                  <a href={`tel:${DOCTOR_INFO.contacts.phoneSecondary}`} style={{ color: '#ffffff', textDecoration: 'none', fontWeight: '700' }}>
-                    {DOCTOR_INFO.contacts.phoneSecondary}
-                  </a>
                 </div>
               </div>
 

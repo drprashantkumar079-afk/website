@@ -39,9 +39,6 @@ export default function AppointmentPage() {
             <a href={`tel:${DOCTOR_INFO.contacts.phonePrimary}`} className="service-aside-link">
               <Phone size={16} /> {DOCTOR_INFO.contacts.phonePrimary}
             </a>
-            <a href={`tel:${DOCTOR_INFO.contacts.phoneSecondary}`} className="service-aside-link">
-              <Phone size={16} /> {DOCTOR_INFO.contacts.phoneSecondary}
-            </a>
             <a href={`mailto:${DOCTOR_INFO.contacts.email}?subject=OPD Appointment Enquiry`} className="service-aside-link">
               <Mail size={16} /> {DOCTOR_INFO.contacts.email}
             </a>

@@ -187,7 +187,7 @@ export default function InfoBlocksSection({ onOpenAppointment }) {
                 OPD Direct Helplines
               </h4>
               <div style={{ fontSize: '1.6rem', fontWeight: '800', color: '#38bdf8', marginBottom: '0.2rem' }}>
-                +91 93536 36227
+                +91 63641 23431
               </div>
               <div style={{ fontSize: '1.6rem', fontWeight: '800', color: '#34d399', marginBottom: '1.25rem' }}>
                 +91 63641 23431
