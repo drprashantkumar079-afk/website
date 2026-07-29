@@ -8,7 +8,7 @@ const PRIMARY_LINKS = [
   { to: '/doctor', label: 'About' },
   { to: '/#conditions', label: 'What We Treat', hash: true },
   { to: '/articles', label: 'Articles' },
-  { to: '/videos', label: 'Videos' },
+  { to: '/media', label: 'Media & Events' },
   { to: '/appointment', label: 'Appointment' }
 ];
 
@@ -135,7 +135,6 @@ export default function Navbar({ onOpenAppointment }) {
                     {route.navLabel}
                   </Link>
                 ))}
-                <Link to="/gallery" onClick={closeServices}>Gallery</Link>
                 <Link to="/faqs" onClick={closeServices}>FAQs</Link>
                 <Link to="/#contact" onClick={goToLocation}>Location</Link>
               </div>
@@ -167,8 +166,7 @@ export default function Navbar({ onOpenAppointment }) {
                 <Link key={route.path} to={route.path}>{route.navLabel}</Link>
               ))}
               <Link to="/articles">Articles</Link>
-              <Link to="/videos">Videos</Link>
-              <Link to="/gallery">Gallery</Link>
+              <Link to="/media">Media & Events</Link>
               <Link to="/faqs">FAQs</Link>
               <Link to="/appointment">Appointment</Link>
               <Link to="/#contact" onClick={goToLocation}>Location</Link>

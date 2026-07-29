@@ -3,6 +3,8 @@ import { useOutletContext } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Hero from '../components/Hero';
+import AwardBanner from '../components/AwardBanner';
+import MediaCoverage from '../components/MediaCoverage';
 import SpecialtyPillars from '../components/SpecialtyPillars';
 import AboutTeaser from '../components/AboutTeaser';
 import TestimonialsSection from '../components/TestimonialsSection';
@@ -10,6 +12,7 @@ import FinalCtaBand from '../components/FinalCtaBand';
 import HomepageHighlights from '../components/HomepageHighlights';
 import SocialStrip from '../components/SocialStrip';
 import ScrollReveal from '../components/ScrollReveal';
+import MedicalCampsSection from '../components/MedicalCampsSection';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import { CONDITIONS, CONDITION_ARTICLES } from '../data/conditionBlogs';
 
@@ -27,6 +30,12 @@ export default function HomePage() {
   return (
     <main>
       <Hero onOpenAppointment={openAppointment} />
+
+      {/* Award Banner */}
+      <AwardBanner />
+
+      {/* Media & TV Feature (Kannada Prabha / Suvarna News) */}
+      <MediaCoverage />
 
       {/* Philosophy — the emotional core */}
       <AboutTeaser />
@@ -83,6 +92,11 @@ export default function HomePage() {
       {/* Social platforms — short & sweet */}
       <ScrollReveal variant="fade-up" delay={100}>
         <SocialStrip />
+      </ScrollReveal>
+
+      {/* Community Outreach / Camps */}
+      <ScrollReveal variant="fade-up" delay={100}>
+        <MedicalCampsSection />
       </ScrollReveal>
 
       {/* Final CTA */}

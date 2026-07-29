@@ -14,7 +14,7 @@ const mediaCoverage = [
     color: '#dc2626',
     bg: 'rgba(220,38,38,0.08)',
     icon: Tv,
-    image: '/Images/doctor-clinical-team.jpg',
+    image: '/Images/kannada-prabha.jpg',
     link: 'https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw'
   },
   {
@@ -81,62 +81,84 @@ export default function MediaCoverage() {
           </p>
         </div>
 
-        {/* Featured TV Appearance */}
+        {/* Featured TV Appearance - Side-by-side card with 100% image visibility */}
         <div style={{
+          borderRadius: '24px',
+          overflow: 'hidden',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
+          boxShadow: '0 20px 40px rgba(15,23,42,0.08)',
+          marginBottom: '3rem',
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '1.5rem',
-          marginBottom: '1.5rem'
-        }} className="media-top-grid">
-          {/* Suvarna News - Featured large */}
+          gridTemplateColumns: 'minmax(280px, 420px) 1fr',
+          gap: '0'
+        }} className="media-featured-hero">
           <div style={{
-            borderRadius: '24px',
-            overflow: 'hidden',
-            background: '#0f172a',
             position: 'relative',
-            minHeight: '320px',
+            background: '#f8fafc',
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            gridRow: 'span 2'
-          }} className="media-featured">
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1.5rem'
+          }}>
             <img
               src={mediaCoverage[0].image}
-              alt="Suvarna News"
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.4 }}
+              alt="Dr Prashanth Kumar Kannada Prabha Studio Interview"
+              style={{
+                width: '100%',
+                maxHeight: '440px',
+                objectFit: 'contain',
+                borderRadius: '16px',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.1)'
+              }}
             />
             <div style={{
-              position: 'relative', zIndex: 2,
-              background: 'linear-gradient(to top, rgba(15,23,42,0.97) 0%, transparent 100%)',
-              padding: '2rem'
+              position: 'absolute', top: '24px', left: '24px',
+              background: '#dc2626', borderRadius: '8px', padding: '0.35rem 0.85rem',
+              fontSize: '0.75rem', fontWeight: '800', color: '#ffffff',
+              textTransform: 'uppercase', letterSpacing: '0.05em',
+              boxShadow: '0 4px 12px rgba(220,38,38,0.3)',
+              display: 'flex', alignItems: 'center', gap: '0.4rem'
             }}>
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                background: '#dc2626', borderRadius: '8px', padding: '0.3rem 0.75rem',
-                fontSize: '0.75rem', fontWeight: '800', color: '#ffffff',
-                textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.85rem'
-              }}>
-                <Tv size={13} /> LIVE Television
-              </div>
-              <div style={{ color: '#38bdf8', fontSize: '0.85rem', fontWeight: '700', marginBottom: '0.35rem' }}>
-                {mediaCoverage[0].network} • {mediaCoverage[0].date}
-              </div>
-              <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: '800', marginBottom: '0.85rem', lineHeight: 1.3 }}>
-                {mediaCoverage[0].headline}
-              </h3>
-              <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                {mediaCoverage[0].description}
-              </p>
-              <a href={mediaCoverage[0].link} target="_blank" rel="noreferrer" style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                color: '#38bdf8', fontWeight: '700', fontSize: '0.9rem', textDecoration: 'none'
-              }}>
-                Watch on YouTube <ExternalLink size={14} />
-              </a>
+              <Tv size={14} /> LIVE Television Feature
             </div>
           </div>
 
-          {/* Right side smaller cards */}
+          <div style={{
+            padding: '2.5rem 3rem',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center'
+          }}>
+            <div style={{ color: '#0284c7', fontSize: '0.88rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.5rem' }}>
+              {mediaCoverage[0].network} • {mediaCoverage[0].date}
+            </div>
+            <h3 style={{ color: 'var(--primary-navy)', fontSize: '1.75rem', fontWeight: '800', marginBottom: '1rem', lineHeight: 1.25 }}>
+              "Dear Doctor" Public Health Broadcast on Kannada Prabha / Suvarna News
+            </h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.65, marginBottom: '1.5rem' }}>
+              Dr. Prashanth Kumar was featured as the guest orthopedic expert on the widely watched "Dear Doctor" program. In this studio interview, he educated viewers across Karnataka on joint preservation, spine health, and modern non-surgical treatment options.
+            </p>
+
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+              <a href={mediaCoverage[0].link} target="_blank" rel="noreferrer" className="btn btn-primary" style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', borderRadius: '12px'
+              }}>
+                <Tv size={16} /> Watch Broadcast <ExternalLink size={14} />
+              </a>
+              <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: '600' }}>
+                Kannada Prabha Media Appearance
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Other Media & Recognition Cards */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '1.5rem'
+        }}>
           {mediaCoverage.slice(1).map((item, i) => {
             const Icon = item.icon;
             return (

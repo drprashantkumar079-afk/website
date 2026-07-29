@@ -6,8 +6,7 @@ import ServicePage from './pages/ServicePage';
 import AppointmentPage from './pages/AppointmentPage';
 import DoctorPage from './pages/DoctorPage';
 import ArticlesPage from './pages/ArticlesPage';
-import VideosPage from './pages/VideosPage';
-import GalleryPage from './pages/GalleryPage';
+import MediaPage from './pages/MediaPage';
 import FaqsPage from './pages/FaqsPage';
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -20,8 +19,7 @@ export default function App() {
           <Route path="doctor" element={<DoctorPage />} />
           <Route path="appointment" element={<AppointmentPage />} />
           <Route path="articles" element={<ArticlesPage />} />
-          <Route path="videos" element={<VideosPage />} />
-          <Route path="gallery" element={<GalleryPage />} />
+          <Route path="media" element={<MediaPage />} />
           <Route path="faqs" element={<FaqsPage />} />
           <Route path="orthocare" element={<ServicePage />} />
           <Route path="joint-replacement" element={<ServicePage />} />

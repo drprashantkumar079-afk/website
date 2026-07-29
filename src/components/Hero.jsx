@@ -20,9 +20,15 @@ export default function Hero({ onOpenAppointment }) {
       <div className="premium-hero-inner">
         {/* Left: Story */}
         <div className="premium-hero-story">
-          <div className="premium-hero-badge">
-            <span className="premium-hero-badge-dot" />
-            Available for OPD · Bengaluru
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+            <div className="premium-hero-badge">
+              <span className="premium-hero-badge-dot" style={{ background: '#eab308' }} />
+              🏆 Lifetime Achievement Awardee (2026)
+            </div>
+            <div className="premium-hero-badge">
+              <span className="premium-hero-badge-dot" />
+              Available for OPD · Bengaluru
+            </div>
           </div>
 
           <h1 className="premium-hero-title">

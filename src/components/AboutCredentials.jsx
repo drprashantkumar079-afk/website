@@ -153,10 +153,10 @@ export default function AboutCredentials() {
               <Award size={26} />
             </div>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-navy)', marginBottom: '0.5rem' }}>
-              Award for Excellence in Orthopedics
+              Lifetime Achievement Award (2026)
             </h3>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
-              Served 8 years as Consultant Orthopedic Surgeon & Teaching Faculty at SH Medical Centre Kottayam. Honored with the Award for Excellence for outstanding patient care.
+              Honored with the prestigious Lifetime Achievement Award for over 15 years of exceptional patient care, surgical excellence, and contributions to the field of Orthopedics in Bengaluru.
             </p>
           </div>
 
