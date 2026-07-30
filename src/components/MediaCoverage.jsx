@@ -103,7 +103,7 @@ export default function MediaCoverage() {
           }}>
             <img
               src={mediaCoverage[0].image}
-              alt="Dr Prashanth Kumar Kannada Prabha Studio Interview"
+              alt="Dr Prashantkumar Kannada Prabha Studio Interview"
               style={{
                 width: '100%',
                 maxHeight: '440px',
@@ -137,7 +137,7 @@ export default function MediaCoverage() {
               "Dear Doctor" Public Health Broadcast on Kannada Prabha / Suvarna News
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-              Dr. Prashanth Kumar was featured as the guest orthopedic expert on the widely watched "Dear Doctor" program. In this studio interview, he educated viewers across Karnataka on joint preservation, spine health, and modern non-surgical treatment options.
+              Dr Prashantkumar was featured as the guest orthopedic expert on the widely watched "Dear Doctor" program. In this studio interview, he educated viewers across Karnataka on joint preservation, spine health, and modern non-surgical treatment options.
             </p>
 
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>

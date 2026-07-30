@@ -14,7 +14,7 @@ const IMPACT_CAMPS = [
       { id: 2, src: '/Images/camps/rachenhalli/rach 2.jpg', alt: 'Doctor consulting patient at health camp' },
       { id: 3, src: '/Images/camps/rachenhalli/rach 3.jpg', alt: 'Orthopedic consultation at medical camp' },
       { id: 4, src: '/Images/camps/rachenhalli/rach 4.jpg', alt: 'Free Health Camp at Rachenahalli Lake' },
-      { id: 5, src: '/Images/camps/rachenhalli/rach 5.jpg', alt: 'Dr Prashanth Kumar examining a senior patient' },
+      { id: 5, src: '/Images/camps/rachenhalli/rach 5.jpg', alt: 'Dr Prashantkumar examining a senior patient' },
     ]
   },
   {
@@ -25,7 +25,7 @@ const IMPACT_CAMPS = [
     description: 'Dedicated community health program offering expert orthopedic consultations, essential vitals monitoring (BP/Sugar), and physiotherapy guidance. This camp focused on making specialized care accessible to the residents of Amruthnagar.',
     images: [
       { id: 6, src: '/Images/camps/amruthahalli/Amrt1.jpg', alt: 'Amruthnagar health camp registration' },
-      { id: 7, src: '/Images/camps/amruthahalli/amrt 2.jpg', alt: 'Dr Prashanth Kumar consulting patient' },
+      { id: 7, src: '/Images/camps/amruthahalli/amrt 2.jpg', alt: 'Dr Prashantkumar consulting patient' },
       { id: 8, src: '/Images/camps/amruthahalli/amrt3.jpg', alt: 'Camp setup and patient queue' },
       { id: 9, src: '/Images/camps/amruthahalli/amrt4.jpg', alt: 'Physiotherapy consultation desk' },
     ]
@@ -44,7 +44,7 @@ export default function MedicalCampsSection() {
             </p>
             <h2>A Legacy of Giving Back</h2>
             <p className="section-lead mx-auto max-w-2xl mt-4">
-              True healthcare goes beyond the clinic walls. Dr. Prashanth Kumar regularly leads free medical camps across Bengaluru, ensuring that expert orthopedic care and essential health screenings are accessible to all sections of society.
+              True healthcare goes beyond the clinic walls. Dr Prashantkumar regularly leads free medical camps across Bengaluru, ensuring that expert orthopedic care and essential health screenings are accessible to all sections of society.
             </p>
           </ScrollReveal>
         </header>
