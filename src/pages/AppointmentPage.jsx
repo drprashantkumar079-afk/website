@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
-import { Calendar, Phone, MapPin, Clock, CheckCircle2, FileText, Stethoscope, Mail, Paperclip } from 'lucide-react';
+import { Calendar, Phone, MapPin, Clock, CheckCircle2, FileText, Stethoscope, Mail, Paperclip, Navigation } from 'lucide-react';
 import BookingForm from '../components/BookingForm';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+import useOpenNow from '../hooks/useOpenNow';
 import { DOCTOR_INFO } from '../data/doctorData';
 
 export default function AppointmentPage() {
   useDocumentTitle('Book OPD Appointment - Vega Curre Clinic');
   const { openAppointment } = useOutletContext();
+  const { isOpen, statusLabel } = useOpenNow();
 
   return (
     <main className="appointment-page section-padding">
@@ -26,7 +28,23 @@ export default function AppointmentPage() {
           <div className="service-card">
             <h4>Clinic &amp; hours</h4>
             <p className="service-aside-line">
-              <Clock size={16} /> {DOCTOR_INFO.contacts.opdHours}
+              <Clock size={16} />
+              <span>
+                Mon – Sat: 10 AM – 8:30 PM<br />
+                Sun: 10 AM – 12 PM (Prior Appt)
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.3rem',
+                  fontSize: '0.78rem', fontWeight: '700', marginLeft: '0.5rem',
+                  color: isOpen ? '#16a34a' : '#dc2626'
+                }}>
+                  <span style={{
+                    width: '7px', height: '7px', borderRadius: '50%',
+                    background: isOpen ? '#22c55e' : '#ef4444',
+                    display: 'inline-block'
+                  }} />
+                  {statusLabel}
+                </span>
+              </span>
             </p>
             <p className="service-aside-line">
               <MapPin size={16} />
@@ -45,6 +63,9 @@ export default function AppointmentPage() {
             <a href={DOCTOR_INFO.contacts.mapsUrl} target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ width: '100%' }}>
               Open in Google Maps
             </a>
+            <Link to="/location" className="btn btn-secondary" style={{ width: '100%', marginTop: '0.5rem', fontSize: '0.88rem' }}>
+              <Navigation size={16} /> View Location & Directions
+            </Link>
           </div>
 
           {/* Send Reports via Email */}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Phone, Calendar, MessageCircle } from 'lucide-react';
+import { Phone, Calendar, MessageCircle, Navigation } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { DOCTOR_INFO } from '../data/doctorData';
 
@@ -36,6 +36,16 @@ export default function StickyBottomBar({ onOpenAppointment }) {
         >
           <MessageCircle size={18} aria-hidden="true" />
           <span>WhatsApp</span>
+        </a>
+
+        <a
+          href={DOCTOR_INFO.contacts.mapsUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="dock-btn dock-btn--directions"
+        >
+          <Navigation size={18} aria-hidden="true" />
+          <span>Directions</span>
         </a>
 
         <Link to="/appointment" className="dock-btn dock-btn--book">

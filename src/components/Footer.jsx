@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Calendar, ArrowUp, ShieldCheck, Heart, ExternalLink, Youtube, Instagram, Facebook, Linkedin, MessageSquare } from 'lucide-react';
 import { DOCTOR_INFO } from '../data/doctorData';
+import useOpenNow from '../hooks/useOpenNow';
 
 export default function Footer({ onOpenAppointment }) {
+  const { isOpen, statusLabel } = useOpenNow();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -163,14 +166,18 @@ export default function Footer({ onOpenAppointment }) {
               Quick Navigation
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.92rem' }}>
-              <li><a href="/" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Home</a></li>
-              <li><a href="/doctor" style={{ color: '#cbd5e1', textDecoration: 'none' }}>About Doctor</a></li>
-              <li><a href="/joint-replacement" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Joint Replacement</a></li>
-              <li><a href="/arthroscopy" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Arthroscopy</a></li>
-              <li><a href="/spine-care" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Spine Care</a></li>
-              <li><a href="/trauma-care" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Trauma Care</a></li>
-              <li><a href="/appointment" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Book Appointment</a></li>
-              <li><a href="/#faqs" style={{ color: '#cbd5e1', textDecoration: 'none' }}>FAQs</a></li>
+              <li><Link to="/" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Home</Link></li>
+              <li><Link to="/about" style={{ color: '#cbd5e1', textDecoration: 'none' }}>About Clinic</Link></li>
+              <li><Link to="/doctor" style={{ color: '#cbd5e1', textDecoration: 'none' }}>About the Surgeon</Link></li>
+              <li><Link to="/orthocare" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Ortho Care</Link></li>
+              <li><Link to="/joint-replacement" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Joint Replacement</Link></li>
+              <li><Link to="/arthroscopy" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Arthroscopy</Link></li>
+              <li><Link to="/spine-care" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Spine Care</Link></li>
+              <li><Link to="/trauma-care" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Trauma Care</Link></li>
+              <li><Link to="/articles" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Articles &amp; Guides</Link></li>
+              <li><Link to="/appointment" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Book Appointment</Link></li>
+              <li><Link to="/faqs" style={{ color: '#cbd5e1', textDecoration: 'none' }}>FAQs</Link></li>
+              <li><Link to="/location" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: '600' }}>📍 Location &amp; Directions</Link></li>
             </ul>
           </div>
 
@@ -224,7 +231,24 @@ export default function Footer({ onOpenAppointment }) {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Clock size={18} color="#38bdf8" />
-                <span>Mon-Sat: 9AM - 1PM | 4:30PM - 8PM</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                  <span>Mon – Sat: 10 AM – 8:30 PM</span>
+                  <span style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Sun: 10 AM – 12 PM (Prior Appt)</span>
+                  <span style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                    fontSize: '0.78rem', fontWeight: '700',
+                    color: isOpen ? '#22c55e' : '#f87171',
+                    marginTop: '0.15rem'
+                  }}>
+                    <span style={{
+                      width: '8px', height: '8px', borderRadius: '50%',
+                      background: isOpen ? '#22c55e' : '#f87171',
+                      display: 'inline-block',
+                      animation: isOpen ? 'pulse-dot 2s ease-in-out infinite' : 'none'
+                    }} />
+                    {statusLabel}
+                  </span>
+                </div>
               </div>
 
               <a 
@@ -250,13 +274,7 @@ export default function Footer({ onOpenAppointment }) {
         </div>
 
         {/* Google Maps Embed */}
-        <div style={{
-          margin: '2.5rem 0 0',
-          borderRadius: '14px',
-          overflow: 'hidden',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          height: '220px',
-        }}>
+        <div className="footer-map-embed">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0!2d77.5754!3d13.0456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17be10a60e33%3A0x7d5c2e1d6f8a8f5d!2sVega%20Curre%20Multispeciality%20Clinic!5e0!3m2!1sen!2sin!4v1700000000000"
             width="100%"
@@ -270,17 +288,7 @@ export default function Footer({ onOpenAppointment }) {
         </div>
 
         {/* Bottom Bar & Copyright */}
-        <div style={{
-          paddingTop: '2rem',
-          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          fontSize: '0.85rem',
-          color: '#64748b'
-        }}>
+        <div className="footer-bottom-bar">
           <div>
             © {new Date().getFullYear()} Dr Prashantkumar Orthopedics • Vega Curre Clinic. All Rights Reserved.
           </div>

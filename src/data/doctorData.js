@@ -1,5 +1,6 @@
 // Peak Level Data Store for Dr Prashantkumar
 import { ARTICLE_COVERS } from './clinicalContent';
+import { ALL_SPECIALTY_FAQS } from './specialtyFaqs';
 
 export const DOCTOR_INFO = {
   name: "Dr Prashantkumar",
@@ -99,7 +100,17 @@ export const DOCTOR_INFO = {
     addressLine3: "Hebbal Kempapura, Bengaluru – 560024",
     location: "Vega Curre Multispeciality Clinic, Hebbal Kempapura, Bengaluru",
     mapsUrl: "https://maps.app.goo.gl/AWnwvQAfmFMe7ax87",
-    opdHours: "Mon - Sat: 9:00 AM - 1:00 PM | 4:30 PM - 8:00 PM"
+    mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0!2d77.5754!3d13.0456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17be10a60e33%3A0x7d5c2e1d6f8a8f5d!2sVega%20Curre%20Multispeciality%20Clinic!5e0!3m2!1sen!2sin!4v1700000000000",
+    opdHours: "Mon – Sat: 10 AM – 8:30 PM | Sun: 10 AM – 12 PM (Prior Appt)",
+    opdSchedule: {
+      monSat: { open: '10:00', close: '20:30', label: 'Mon – Sat: 10 AM – 8:30 PM' },
+      sun: { open: '10:00', close: '12:00', label: 'Sun: 10 AM – 12 PM (Prior Appt)', byAppointment: true }
+    },
+    nearbyLandmarks: [
+      'Near Hebbal Flyover, Outer Ring Road',
+      'Opposite Bhuvaneswari Nagar Park',
+      'Dasarahalli Main Road, Kempapura'
+    ]
   },
   images: {
     hero: "/Images/doctor-portrait-coat.jpg",
@@ -558,25 +569,17 @@ export const VIDEOS = [
   }
 ];
 
-export const FAQS = [
+const GLOBAL_FAQS = [
   {
-    category: "Joint Replacement",
-    question: "Where can I consult Dr Prashantkumar for Knee or Hip Replacement?",
-    answer: "Dr Prashantkumar is the Founder & Director of Vega Curre Multispeciality Clinic (Bengaluru) and serves as a Visiting Senior Consultant Surgeon at Manipal Hospital, Sparsh Hospital, and HOSMAT Hospital in Bengaluru. Appointments can be scheduled by calling +91 63641 23431."
+    category: 'About the Clinic',
+    question: 'Where is Vega Curre Multispeciality Clinic located?',
+    answer: 'Vega Curre is on the 2nd Floor, Shop No. 24 & 25, 3rd A Cross, Bhuvaneswari Nagar, Dasarahalli Main Road, Hebbal Kempapura, Bengaluru – 560024. Visit /location for map, hours and directions.'
   },
   {
-    category: "Joint Replacement",
-    question: "What is Crowe Type IV Hip Replacement and why is it complex?",
-    answer: "Crowe Type IV hip dysplasia is the highest grade of congenital hip dislocation, where the joint is entirely out of place and the leg is shortened. Dr Prashantkumar specializes in uncemented THR with subtrochanteric osteotomy, a procedure featured in press coverage and presented at OASISCON 2018."
-  },
-  {
-    category: "Spine Care",
-    question: "Did Dr Prashantkumar discuss nerve health on Suvarna News?",
-    answer: "Yes, Dr Prashantkumar was invited as an expert speaker on Asianet Suvarna News Kannada's 'Dear Doctor' program, where he educated the public on nerve compression, sciatica, cervical spondylosis, and non-surgical recovery."
-  },
-  {
-    category: "Social Media & Education",
+    category: 'Social Media & Education',
     question: "Where can I watch Dr Prashantkumar's surgical lectures and posters?",
-    answer: "You can subscribe to his YouTube Channel 'Dr Prashantkumar Ortho Care' (https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw) or follow @dr.prashantkumar23 on Instagram and Facebook for health posters and live video updates."
+    answer: "Subscribe to his YouTube Channel 'Dr Prashantkumar Ortho Care' (https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw) or follow @dr.prashantkumar23 on Instagram and Facebook for health posters and live video updates."
   }
 ];
+
+export const FAQS = [...GLOBAL_FAQS, ...ALL_SPECIALTY_FAQS];

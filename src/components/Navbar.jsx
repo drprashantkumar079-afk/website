@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Phone, Calendar, Clock, Menu, X, Youtube, Instagram, Facebook } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Phone, Calendar, Clock, Menu, X, Youtube, Instagram, Facebook, MapPin, Navigation, ChevronDown } from 'lucide-react';
 import { DOCTOR_INFO } from '../data/doctorData';
 import { SERVICE_ROUTES } from '../data/serviceRoutes';
-
-const PRIMARY_LINKS = [
-  { to: '/doctor', label: 'About' },
-  { to: '/#conditions', label: 'What We Treat', hash: true },
-  { to: '/articles', label: 'Articles' },
-  { to: '/media', label: 'Media & Events' },
-  { to: '/appointment', label: 'Appointment' }
-];
+import useOpenNow from '../hooks/useOpenNow';
 
 export default function Navbar({ onOpenAppointment }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
+  const { isOpen, statusLabel } = useOpenNow();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -26,7 +20,7 @@ export default function Navbar({ onOpenAppointment }) {
 
   useEffect(() => {
     setMobileOpen(false);
-    setServicesOpen(false);
+    setActiveDropdown(null);
   }, [location.pathname, location.hash]);
 
   useEffect(() => {
@@ -35,12 +29,14 @@ export default function Navbar({ onOpenAppointment }) {
   }, [mobileOpen]);
 
   useEffect(() => {
-    if (!servicesOpen) return undefined;
+    if (!activeDropdown) return undefined;
     const onPointerDown = (e) => {
-      if (!e.target.closest('.nav-more')) setServicesOpen(false);
+      if (!e.target.closest('.nav-dept-dropdown') && !e.target.closest('.nav-more')) {
+        setActiveDropdown(null);
+      }
     };
     const onKeyDown = (e) => {
-      if (e.key === 'Escape') setServicesOpen(false);
+      if (e.key === 'Escape') setActiveDropdown(null);
     };
     document.addEventListener('pointerdown', onPointerDown);
     document.addEventListener('keydown', onKeyDown);
@@ -48,30 +44,36 @@ export default function Navbar({ onOpenAppointment }) {
       document.removeEventListener('pointerdown', onPointerDown);
       document.removeEventListener('keydown', onKeyDown);
     };
-  }, [servicesOpen]);
+  }, [activeDropdown]);
 
-  const closeServices = () => setServicesOpen(false);
-
-  const goToLocation = (e) => {
-    closeServices();
-    setMobileOpen(false);
-    if (location.pathname === '/' && location.hash === '#contact') {
-      e.preventDefault();
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  const isServiceActive = SERVICE_ROUTES.some((route) => location.pathname === route.path);
 
   return (
     <div className="site-chrome">
+      {/* ── Topbar — Location Pin + Live Schedule + Contact ── */}
       <div className="topbar">
         <div className="container topbar-inner">
+          <Link to="/location" className="topbar-location-pin">
+            <MapPin size={13} />
+            <span className="topbar-location-text">Hebbal Kempapura, Bengaluru</span>
+            <Navigation size={10} className="topbar-location-arrow" />
+          </Link>
+
           <p className="topbar-hours">
-            <Clock size={14} aria-hidden="true" />
-            <span>OPD Mon–Sat · 9AM–1PM &amp; 4:30PM–8PM</span>
+            <Clock size={13} aria-hidden="true" />
+            <span>Mon–Sat: 10 AM – 8:30 PM</span>
+            <span className="topbar-sep-inline" aria-hidden="true">·</span>
+            <span className={`topbar-open-status ${isOpen ? 'is-open' : 'is-closed'}`}>
+              <span className="topbar-open-dot" />
+              {statusLabel}
+            </span>
+            <span className="topbar-sep-inline topbar-sun-sep" aria-hidden="true">|</span>
+            <span className="topbar-sun-hours">Sun: 10 AM – 12 PM (Prior Appt)</span>
           </p>
+
           <div className="topbar-actions">
             <a href={`tel:${DOCTOR_INFO.contacts.phonePrimary}`} className="topbar-phone">
-              <Phone size={14} aria-hidden="true" />
+              <Phone size={13} aria-hidden="true" />
               {DOCTOR_INFO.contacts.phonePrimary}
             </a>
             <span className="topbar-sep" aria-hidden="true" />
@@ -83,20 +85,21 @@ export default function Navbar({ onOpenAppointment }) {
                 className="topbar-youtube-btn"
                 aria-label="YouTube channel"
               >
-                <Youtube size={16} fill="currentColor" strokeWidth={0} aria-hidden="true" />
+                <Youtube size={15} fill="currentColor" strokeWidth={0} aria-hidden="true" />
                 <span>YouTube</span>
               </a>
               <a href={DOCTOR_INFO.socialLinks.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="topbar-icon-btn">
-                <Instagram size={16} />
+                <Instagram size={15} />
               </a>
               <a href={DOCTOR_INFO.socialLinks.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="topbar-icon-btn">
-                <Facebook size={16} fill="currentColor" />
+                <Facebook size={15} fill="currentColor" />
               </a>
             </div>
           </div>
         </div>
       </div>
 
+      {/* ── Main Header & Mega Nav ── */}
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="container site-header-inner">
           <Link to="/" className="brand-mark">
@@ -107,38 +110,110 @@ export default function Navbar({ onOpenAppointment }) {
             </span>
           </Link>
 
+          {/* Desktop Navigation with Sub-topic Dropdowns */}
           <nav className="primary-nav" aria-label="Primary">
-            {PRIMARY_LINKS.map((link) =>
-              link.hash ? (
-                <Link key={link.to} to={link.to} className="primary-nav-link">
-                  {link.label}
-                </Link>
-              ) : (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  className={({ isActive }) => `primary-nav-link${isActive ? ' is-active' : ''}`}
-                >
-                  {link.label}
-                </NavLink>
-              )
-            )}
-            <details
-              className="nav-more"
-              open={servicesOpen}
-              onToggle={(e) => setServicesOpen(e.currentTarget.open)}
+            <div
+              className="nav-dept-dropdown"
+              onMouseEnter={() => setActiveDropdown('about')}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
-              <summary>Services</summary>
-              <div className="nav-more-panel">
-                {SERVICE_ROUTES.map((route) => (
-                  <Link key={route.path} to={route.path} onClick={closeServices}>
-                    {route.navLabel}
+              <span
+                className={`primary-nav-link${location.pathname === '/about' || location.pathname === '/doctor' ? ' is-active' : ''}`}
+                style={{ cursor: 'pointer' }}
+              >
+                About <ChevronDown size={12} className="nav-caret" />
+              </span>
+
+              {activeDropdown === 'about' && (
+                <div className="mega-menu-panel mega-menu-panel--narrow">
+                  <Link to="/about" className="mega-topic-item" onClick={() => setActiveDropdown(null)}>
+                    <span className="mega-topic-name">About Vega Curre Clinic</span>
+                    <span className="mega-topic-desc">Vision, mission &amp; our philosophy</span>
                   </Link>
-                ))}
-                <Link to="/faqs" onClick={closeServices}>FAQs</Link>
-                <Link to="/#contact" onClick={goToLocation}>Location</Link>
-              </div>
-            </details>
+                  <Link to="/doctor" className="mega-topic-item" onClick={() => setActiveDropdown(null)}>
+                    <span className="mega-topic-name">About the Surgeon</span>
+                    <span className="mega-topic-desc">Credentials, media &amp; achievements</span>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* All clinical departments — one Services mega menu */}
+            <div
+              className="nav-dept-dropdown"
+              onMouseEnter={() => setActiveDropdown('services')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <span
+                className={`primary-nav-link${isServiceActive ? ' is-active' : ''}`}
+                style={{ cursor: 'pointer' }}
+              >
+                Services <ChevronDown size={12} className="nav-caret" />
+              </span>
+
+              {activeDropdown === 'services' && (
+                <div className="mega-menu-panel mega-menu-panel--services">
+                  <div className="mega-menu-header">
+                    <strong>Clinical Departments &amp; Procedures</strong>
+                    <p>Five specialty areas — each with detailed procedure information</p>
+                  </div>
+                  <div className="mega-services-grid">
+                    {SERVICE_ROUTES.map((route) => (
+                      <div key={route.path} className="mega-service-col">
+                        <Link
+                          to={route.path}
+                          className="mega-service-title"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          {route.navLabel}
+                        </Link>
+                        <p className="mega-service-desc">{route.shortDesc}</p>
+                        <ul className="mega-service-topics">
+                          {route.subTopics.map((topic) => (
+                            <li key={topic.id}>
+                              <Link
+                                to={`${route.path}#${topic.id}`}
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                {topic.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                        <Link
+                          to={route.path}
+                          className="mega-service-all"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          View {route.navLabel} →
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Secondary More Menu */}
+            <div
+              className="nav-dept-dropdown nav-more"
+              onMouseEnter={() => setActiveDropdown('more')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <span className="primary-nav-link" style={{ cursor: 'pointer' }}>
+                More <ChevronDown size={12} className="nav-caret" />
+              </span>
+
+              {activeDropdown === 'more' && (
+                <div className="mega-menu-panel mega-menu-panel--narrow">
+                  <Link to="/articles" className="mega-topic-item">Articles &amp; Guides</Link>
+                  <Link to="/media" className="mega-topic-item">Media &amp; Events</Link>
+                  <Link to="/faqs" className="mega-topic-item">Patient FAQs</Link>
+                  <Link to="/location" className="mega-topic-item">Location &amp; Directions</Link>
+                  <Link to="/appointment" className="mega-topic-item">Book OPD Appointment</Link>
+                </div>
+              )}
+            </div>
           </nav>
 
           <div className="header-cta">
@@ -158,20 +233,41 @@ export default function Navbar({ onOpenAppointment }) {
           </div>
         </div>
 
+        {/* ── Mobile Drawer with Full Department & Sub-Topic Breakdown ── */}
         {mobileOpen && (
           <div className="mobile-drawer">
             <div className="container mobile-drawer-inner">
-              <Link to="/doctor">About Doctor</Link>
+              <p className="mobile-drawer-section-label">About</p>
+              <Link to="/about">About Vega Curre Clinic</Link>
+              <Link to="/doctor">About Dr Prashantkumar</Link>
+
+              <p className="mobile-drawer-section-label">Departments &amp; Procedures</p>
               {SERVICE_ROUTES.map((route) => (
-                <Link key={route.path} to={route.path}>{route.navLabel}</Link>
+                <div key={route.path} className="mobile-dept-group">
+                  <Link to={route.path} className="mobile-dept-title">
+                    {route.navLabel}
+                  </Link>
+                  <div className="mobile-subtopics-list">
+                    {route.subTopics.map((topic) => (
+                      <Link key={topic.id} to={`${route.path}#${topic.id}`} className="mobile-subtopic-link">
+                        • {topic.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               ))}
+
+              <p className="mobile-drawer-section-label">Resources &amp; Visit</p>
               <Link to="/articles">Articles</Link>
-              <Link to="/media">Media & Events</Link>
+              <Link to="/media">Media &amp; Events</Link>
               <Link to="/faqs">FAQs</Link>
-              <Link to="/appointment">Appointment</Link>
-              <Link to="/#contact" onClick={goToLocation}>Location</Link>
-              <button type="button" className="btn btn-primary" onClick={onOpenAppointment}>
-                <Calendar size={18} /> Book Appointment
+              <Link to="/location" className="mobile-drawer-location">
+                <MapPin size={15} /> Location &amp; Directions
+              </Link>
+              <Link to="/appointment">Book Appointment</Link>
+
+              <button type="button" className="btn btn-primary mobile-drawer-cta" onClick={onOpenAppointment}>
+                <Calendar size={18} /> Book OPD Appointment Now
               </button>
             </div>
           </div>

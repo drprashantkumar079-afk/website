@@ -34,6 +34,7 @@ export default function DoctorPage() {
               <button type="button" className="btn btn-primary" onClick={openAppointment}>
                 <Calendar size={18} /> Book Appointment
               </button>
+              <Link to="/about" className="btn btn-secondary">About the Clinic</Link>
               <Link to="/appointment" className="btn btn-secondary">Full booking page</Link>
             </div>
             <p className="doctor-page-stat">

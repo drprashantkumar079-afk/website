@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Activity, ArrowRight, BookOpen } from 'lucide-react';
 import { CONDITIONS, CONDITION_ARTICLES } from '../data/conditionBlogs';
 
@@ -47,9 +48,9 @@ export default function ConditionsGrid({ onSelectArticle }) {
 
         <div className="conditions-footer">
           <p>Prefer browsing all articles together?</p>
-          <a href="#articles" className="conditions-footer-link">
+          <Link to="/articles" className="conditions-footer-link">
             <BookOpen size={16} /> Open Articles Hub <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

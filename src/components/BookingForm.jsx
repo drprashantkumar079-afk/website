@@ -13,8 +13,10 @@ const SPECIALTIES = [
 ];
 
 const TIME_SLOTS = [
-  'Morning (9 AM - 1 PM)',
-  'Evening (4:30 PM - 8 PM)',
+  'Morning (10 AM – 1 PM)',
+  'Afternoon (1 PM – 5 PM)',
+  'Evening (5 PM – 8:30 PM)',
+  'Sunday (10 AM – 12 PM, Prior Appt)',
 ];
 
 /**

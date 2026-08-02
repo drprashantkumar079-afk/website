@@ -63,8 +63,8 @@ export default function AboutTeaser() {
                 </div>
               </div>
 
-              <Link to="/doctor" className="philosophy-link">
-                Read full story &amp; credentials <ArrowRight size={16} />
+              <Link to="/about" className="philosophy-link">
+                About Vega Curre Clinic <ArrowRight size={16} />
               </Link>
             </div>
           </div>
