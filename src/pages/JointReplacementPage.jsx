@@ -180,6 +180,77 @@ export default function JointReplacementPage() {
         <div className="container service-layout">
           <div className="service-main">
 
+            {/* ===== OXINIUM IMPLANT FEATURED SHOWCASE ===== */}
+            <div style={{
+              background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+              borderRadius: '24px',
+              color: '#ffffff',
+              padding: '2rem',
+              marginBottom: '3rem',
+              boxShadow: '0 20px 40px rgba(15, 23, 42, 0.25)',
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: '2rem',
+              alignItems: 'center'
+            }} className="oxinium-card">
+              <div>
+                <span style={{
+                  background: 'linear-gradient(135deg, #0284c7 0%, #0d9488 100%)',
+                  color: '#ffffff',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  padding: '0.3rem 0.85rem',
+                  borderRadius: '20px',
+                  letterSpacing: '0.04em',
+                  display: 'inline-block',
+                  marginBottom: '0.75rem'
+                }}>
+                  ADVANCED IMPLANT TECHNOLOGY
+                </span>
+                <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.85rem', lineHeight: 1.25 }}>
+                  Oxinium™ Total Knee Replacement (Oxidized Zirconium)
+                </h3>
+                <p style={{ color: '#cbd5e1', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                  Actual intraoperative view of an <strong>Oxinium Total Knee Implant</strong> placed by Dr Prashantkumar. Oxinium combines the strength of metal with the smooth, wear-resistant surface of ceramic — engineered for younger active adults and long-term implant longevity.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.9rem', color: '#e2e8f0' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <span style={{ color: '#38bdf8', fontWeight: 800 }}>✓</span>
+                    <span><strong>30+ Year Expected Durability:</strong> 4,900x smoother than cobalt-chrome to minimize poly wear.</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <span style={{ color: '#38bdf8', fontWeight: 800 }}>✓</span>
+                    <span><strong>Hypoallergenic Ceramic Surface:</strong> Zero nickel release — safe for metal-sensitive patients.</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <span style={{ color: '#38bdf8', fontWeight: 800 }}>✓</span>
+                    <span><strong>Sub-Vastus Muscle Preservation:</strong> Preserves quadriceps tendon for faster recovery.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', border: '3px solid rgba(255,255,255,0.15)' }}>
+                <img
+                  src="/Images/oxinium-tkr-implant.jpg"
+                  alt="Actual intraoperative surgical photo of Oxinium Total Knee Replacement by Dr Prashantkumar"
+                  style={{ width: '100%', height: '340px', objectFit: 'cover', display: 'block' }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  background: 'linear-gradient(to top, rgba(15,23,42,0.95), transparent)',
+                  padding: '1rem',
+                  fontSize: '0.82rem',
+                  color: '#f1f5f9'
+                }}>
+                  <strong style={{ display: 'block', color: '#38bdf8' }}>Intraoperative Photo — Dr Prashantkumar Surgery</strong>
+                  <span>Oxinium Knee Implant with Polyethylene Insert in Position</span>
+                </div>
+              </div>
+            </div>
+
             {/* ===== SURGERY IN ACTION — OR GALLERY ===== */}
             <div className="or-gallery-section">
               <h3>Surgery in Action — Inside the Operating Room</h3>

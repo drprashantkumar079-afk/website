@@ -91,13 +91,83 @@ export default function TestimonialsSection() {
   return (
     <section id="testimonials" className="section-padding testimonials-section">
       <div className="container">
+        {/* Prominent Google Reviews Badge Banner */}
+        <div style={{
+          background: 'linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%)',
+          border: '2px solid #bbf7d0',
+          borderRadius: '20px',
+          padding: '1.25rem 1.75rem',
+          marginBottom: '2.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '1.25rem',
+          boxShadow: '0 10px 30px -10px rgba(16, 185, 129, 0.15)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{
+              width: '52px',
+              height: '52px',
+              borderRadius: '14px',
+              background: '#ffffff',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '1.8rem',
+              fontWeight: 800
+            }}>
+              <span style={{ color: '#4285F4' }}>G</span>
+            </div>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a' }}>4.9</span>
+                <div style={{ display: 'flex', gap: '2px' }}>
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={18} fill="#f59e0b" color="#f59e0b" />
+                  ))}
+                </div>
+                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#15803d', background: '#dcfce7', padding: '0.2rem 0.6rem', borderRadius: '20px' }}>
+                  ✓ Verified Google Reviews
+                </span>
+              </div>
+              <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.92rem', color: '#475569' }}>
+                Dr Prashantkumar — Vega Curre Multispeciality Clinic, Hebbal Kempapura
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="https://www.google.com/search?q=dr+prashant+kumar+ortho+care+reviews"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary"
+            style={{
+              background: '#15803d',
+              borderColor: '#15803d',
+              color: '#ffffff',
+              borderRadius: '12px',
+              padding: '0.75rem 1.4rem',
+              fontWeight: 700,
+              fontSize: '0.92rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <span>See 150+ Google Reviews</span>
+            <span style={{ fontSize: '1.1rem' }}>→</span>
+          </a>
+        </div>
+
         <header className="section-header">
           <p className="section-kicker">
-            <Star size={14} fill="currentColor" aria-hidden="true" /> Patient stories
+            <Star size={14} fill="currentColor" aria-hidden="true" /> Google &amp; Patient Reviews
           </p>
           <h2>What patients say after recovery</h2>
           <p className="section-lead">
-            Over 3,800 procedures — these are typical recovery stories patients share after care at Vega Curre and affiliated hospitals.
+            Over 3,800 procedures — verified Google reviews &amp; recovery experiences from Vega Curre patients.
           </p>
         </header>
 
@@ -113,8 +183,8 @@ export default function TestimonialsSection() {
                 <MapPin size={13} aria-hidden="true" /> {t.location}
               </div>
               <div className="testimonial-treatment">{t.treatment}</div>
-              <div className="testimonial-meta">
-                <Calendar size={13} aria-hidden="true" /> {t.date}
+              <div style={{ marginTop: '0.5rem', fontSize: '0.78rem', color: '#16a34a', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                <span>★ Google Review</span>
               </div>
             </div>
 

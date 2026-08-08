@@ -24,6 +24,9 @@ function handleImageError(event, fallbackSrc) {
 
 export default function VideosSection({ onSelectVideo }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [activeVideoId, setActiveVideoId] = useState(VIDEOS[0]?.youtubeId || 'aEKSNe7myak');
+  const activeVideo = VIDEOS.find((v) => v.youtubeId === activeVideoId) || VIDEOS[0];
+
   const categories = useMemo(
     () => ['All', ...new Set(VIDEOS.map((v) => v.category))],
     []
@@ -34,21 +37,28 @@ export default function VideosSection({ onSelectVideo }) {
       ? VIDEOS
       : VIDEOS.filter((v) => v.category === selectedCategory);
 
+  const handlePlayVideo = (video, thumb) => {
+    setActiveVideoId(video.youtubeId);
+    if (onSelectVideo) {
+      onSelectVideo({ ...video, thumbnail: thumb });
+    }
+  };
+
   return (
     <section id="videos" className="section-padding videos-section">
       <div className="container">
         <header className="section-header">
           <p className="section-kicker">Video Hub</p>
-          <h2>Watch on YouTube</h2>
+          <h2>Watch on YouTube — {activeVideo.title}</h2>
           <p className="section-lead">
-            Real clinic videos — ACL recovery, knee PRP, fractures, hip fixation and more — plus the full channel playlist below.
+            Real clinic videos — ACL recovery, knee PRP, fractures, hip fixation and more. Click any video below to play.
           </p>
         </header>
 
         <div className="yt-live-wrap">
           <iframe
-            title="Dr Prashantkumar Ortho Care — YouTube"
-            src={`https://www.youtube.com/embed/videoseries?list=${UPLOADS_PLAYLIST}&rel=0`}
+            title={activeVideo.title || "Dr Prashantkumar Ortho Care — YouTube"}
+            src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1&rel=0`}
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
@@ -56,7 +66,7 @@ export default function VideosSection({ onSelectVideo }) {
         </div>
 
         <a
-          href={DOCTOR_INFO.socialLinks.youtubeChannel}
+          href={activeVideo.youtubeUrl || DOCTOR_INFO.socialLinks.youtubeChannel}
           target="_blank"
           rel="noreferrer"
           className="youtube-banner"
@@ -69,7 +79,7 @@ export default function VideosSection({ onSelectVideo }) {
             <span>Subscribe for surgical lectures, Suvarna News talks &amp; recovery guides</span>
           </div>
           <span className="youtube-banner-cta">
-            Open channel <ExternalLink size={16} />
+            Open on YouTube <ExternalLink size={16} />
           </span>
         </a>
 
@@ -92,12 +102,13 @@ export default function VideosSection({ onSelectVideo }) {
           {filtered.map((video) => {
             const thumb = video.thumbnail || TOPIC_THUMBS[video.category];
             const fallbackThumb = TOPIC_THUMBS[video.category] || TOPIC_IMAGES.clinic;
+            const isPlaying = activeVideoId === video.youtubeId;
             return (
-              <article key={video.id} className="video-tile">
+              <article key={video.id} className={`video-tile ${isPlaying ? 'is-playing' : ''}`}>
                 <button
                   type="button"
                   className="video-thumb"
-                  onClick={() => onSelectVideo({ ...video, thumbnail: thumb })}
+                  onClick={() => handlePlayVideo(video, thumb)}
                   aria-label={`Play ${video.title}`}
                 >
                   <img

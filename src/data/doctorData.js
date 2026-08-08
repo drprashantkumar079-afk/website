@@ -113,10 +113,10 @@ export const DOCTOR_INFO = {
     ]
   },
   images: {
-    hero: "/Images/doctor-portrait-coat.jpg",
-    heroAlt: "/Images/doctor-clinical-team.jpg",
-    about: "/Images/doctor-portrait-coat.jpg",
-    portrait: "/Images/doctor-portrait-suit.jpg",
+    hero: "/Images/dr-prashant-kumar-profile.jpg",
+    heroAlt: "/Images/dr-prashant-kumar-profile.jpg",
+    about: "/Images/dr-prashant-kumar-profile.jpg",
+    portrait: "/Images/dr-prashant-kumar-profile.jpg",
     clinical: "/Images/clinic-opd.jpg",
     roboticKnee: "/Images/robotic-knee.png",
     keyholeArthroscopy: "/Images/keyhole-arthroscopy.png",

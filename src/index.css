@@ -318,16 +318,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-mark-badge {
-  width: 42px;
-  height: 42px;
-  border-radius: 11px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
   background: linear-gradient(135deg, #0c4a6e, #0f766e);
   color: #fff;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 800;
   font-size: 1.05rem;
   flex-shrink: 0;
+  border: 2px solid #0284c7;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2);
+}
+
+.brand-mark-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .brand-mark-text {
@@ -360,12 +371,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .primary-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  height: 40px;
+  line-height: 1;
   text-decoration: none;
   color: var(--text-muted);
   font-weight: 600;
-  font-size: 0.9rem;
-  padding: 0.45rem 0.7rem;
-  border-radius: 8px;
+  font-size: 0.92rem;
+  padding: 0 0.85rem;
+  border-radius: 10px;
+  box-sizing: border-box;
   transition: color var(--transition), background var(--transition);
 }
 
@@ -5724,12 +5742,12 @@ img[loading="lazy"] {
 }
 
 .mega-menu-panel--services {
-  width: min(920px, calc(100vw - 2rem));
+  width: min(980px, calc(100vw - 2rem));
   padding: 1.25rem 1.35rem 1.1rem;
-  left: auto;
-  right: 0;
-  transform: none;
-  animation: mega-fade-in-right 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  animation: mega-fade-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes mega-fade-in-right {
@@ -7312,4 +7330,9 @@ img[loading="lazy"] {
     flex-direction: column;
   }
 }
-
+@media (max-width: 768px) {
+  .oxinium-card {
+    grid-template-columns: 1fr !important;
+    padding: 1.5rem !important;
+  }
+}

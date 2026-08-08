@@ -167,16 +167,15 @@ export default function Footer({ onOpenAppointment }) {
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.92rem' }}>
               <li><Link to="/" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Home</Link></li>
-              <li><Link to="/about" style={{ color: '#cbd5e1', textDecoration: 'none' }}>About Clinic</Link></li>
-              <li><Link to="/doctor" style={{ color: '#cbd5e1', textDecoration: 'none' }}>About the Surgeon</Link></li>
-              <li><Link to="/orthocare" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Ortho Care</Link></li>
+              <li><Link to="/doctor" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Dr Prashant Kumar (Profile)</Link></li>
               <li><Link to="/joint-replacement" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Joint Replacement</Link></li>
-              <li><Link to="/arthroscopy" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Arthroscopy</Link></li>
+              <li><Link to="/arthroscopy" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Arthroscopy &amp; Sports Medicine</Link></li>
               <li><Link to="/spine-care" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Spine Care</Link></li>
               <li><Link to="/trauma-care" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Trauma Care</Link></li>
+              <li><Link to="/orthocare" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Orthopedics</Link></li>
+              <li><Link to="/media" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Media &amp; Events</Link></li>
               <li><Link to="/articles" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Articles &amp; Guides</Link></li>
-              <li><Link to="/appointment" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Book Appointment</Link></li>
-              <li><Link to="/faqs" style={{ color: '#cbd5e1', textDecoration: 'none' }}>FAQs</Link></li>
+              <li><Link to="/appointment" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Book OPD Appointment</Link></li>
               <li><Link to="/location" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: '600' }}>📍 Location &amp; Directions</Link></li>
             </ul>
           </div>

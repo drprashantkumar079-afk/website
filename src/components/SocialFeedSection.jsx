@@ -5,8 +5,8 @@ import { DOCTOR_INFO } from '../data/doctorData';
 const UPLOADS_PLAYLIST = 'UUw9E_H95SrJf4yKK0tag1rw';
 
 const INSTA_POSTS = [
-  { id: 1, image: '/Images/doctor-portrait-coat.jpg', type: 'post', caption: 'Orthopedic Health Education' },
-  { id: 2, image: '/Images/doctor-clinical-team.jpg', type: 'reel', caption: 'Patient Recovery Updates' },
+  { id: 1, image: '/Images/dr-prashant-kumar-profile.jpg', type: 'post', caption: 'Dr Prashantkumar — Orthopedic Specialist' },
+  { id: 2, image: '/Images/oxinium-tkr-implant.jpg', type: 'reel', caption: 'Oxinium Total Knee Replacement' },
   { id: 3, image: '/Images/clinic-opd.jpg', type: 'post', caption: 'Vega Curre Clinic OPD' },
   { id: 4, image: '/Images/surgery-reconstruct.jpg', type: 'reel', caption: 'Surgical Procedures' },
   { id: 5, image: '/Images/health-camp.jpg', type: 'post', caption: 'Community Health Camps' },

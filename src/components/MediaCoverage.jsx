@@ -28,7 +28,7 @@ const mediaCoverage = [
     color: '#0284c7',
     bg: 'rgba(2,132,199,0.08)',
     icon: Newspaper,
-    image: '/Images/doctor-portrait-coat.jpg',
+    image: '/Images/dr-prashant-kumar-profile.jpg',
     link: '#about'
   },
   {
