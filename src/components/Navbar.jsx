@@ -138,7 +138,7 @@ export default function Navbar({ onOpenAppointment }) {
                 <div className="mega-menu-panel mega-menu-panel--services">
                   <div className="mega-menu-header">
                     <strong>Clinical Departments &amp; Procedures</strong>
-                    <p>Five specialty areas — each with detailed procedure information</p>
+                    <p>Six specialty areas — with detailed procedure &amp; biological therapy information</p>
                   </div>
                   <div className="mega-services-grid">
                     {SERVICE_ROUTES.map((route) => (

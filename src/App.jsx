@@ -8,6 +8,7 @@ import ArticlesPage from './pages/ArticlesPage';
 import MediaPage from './pages/MediaPage';
 import LocationPage from './pages/LocationPage';
 import OrthoCarePage from './pages/OrthoCarePage';
+import RegenerativeTherapyPage from './pages/RegenerativeTherapyPage';
 import JointReplacementPage from './pages/JointReplacementPage';
 import ArthroscopyPage from './pages/ArthroscopyPage';
 import SpineCarePage from './pages/SpineCarePage';
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="faqs" element={<Navigate to="/" replace />} />
           <Route path="location" element={<LocationPage />} />
           <Route path="orthocare" element={<OrthoCarePage />} />
+          <Route path="regenerative-therapy" element={<RegenerativeTherapyPage />} />
           <Route path="joint-replacement" element={<JointReplacementPage />} />
           <Route path="arthroscopy" element={<ArthroscopyPage />} />
           <Route path="spine-care" element={<SpineCarePage />} />

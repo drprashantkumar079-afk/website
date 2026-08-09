@@ -4,12 +4,24 @@ export const SERVICE_ROUTES = [
     path: '/orthocare',
     dataKey: 'orthocare',
     navLabel: 'Ortho Care',
-    shortDesc: 'Non-surgical joint preservation & diagnostic wellness',
+    shortDesc: 'Non-surgical joint care & diagnostic wellness',
     subTopics: [
-      { id: 'oa-wear', name: 'Osteoarthritis & Cartilage Degeneration', desc: 'Early diagnosis and joint cartilage preservation' },
-      { id: 'visco-inj', name: 'Viscosupplementation Injections', desc: 'Hyaluronic acid joint lubrication for 6–12 months relief' },
-      { id: 'prp-therapy', name: 'PRP Cartilage Therapy', desc: 'Autologous platelet-rich plasma growth factor injections' },
-      { id: 'rheuma-gout', name: 'Rheumatoid & Inflammatory Arthritis', desc: 'Medical management of joint inflammation & gout flares' }
+      { id: 'oa-wear', name: 'Osteoarthritis & Joint Wear', desc: 'Early diagnosis and joint alignment protection' },
+      { id: 'rheuma-gout', name: 'Rheumatoid & Gout Arthritis', desc: 'Medical management of joint inflammation & flares' },
+      { id: 'bone-density', name: 'Osteoporosis & Bone Health', desc: 'Bone density evaluation & fracture prevention' },
+      { id: 'tendonitis', name: 'Tendonitis & Soft Tissue Care', desc: 'Bursitis, plantar fasciitis & ligament strain therapy' }
+    ]
+  },
+  {
+    path: '/regenerative-therapy',
+    dataKey: 'regenerativetherapy',
+    navLabel: 'Regenerative Therapy',
+    shortDesc: 'PRP, BMAC stem cell & viscosupplementation injections',
+    subTopics: [
+      { id: 'prp-therapy', name: 'Autologous PRP Therapy', desc: 'Platelet-rich plasma growth factor concentrate' },
+      { id: 'bmac-cell', name: 'BMAC Stem Cell Therapy', desc: 'Bone marrow aspirate concentrate for cartilage repair' },
+      { id: 'visco-inj', name: 'Viscosupplementation Injections', desc: 'Hyaluronic acid joint cushioning for 6–12 months' },
+      { id: 'cartilage-repair', name: 'Biological Cartilage Repair', desc: 'Non-surgical joint preservation for knee & shoulder' }
     ]
   },
   {
