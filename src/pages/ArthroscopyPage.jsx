@@ -212,9 +212,9 @@ export default function ArthroscopyPage() {
             />
 
             <VideoEmbed 
-              videoId="PLACEHOLDER" 
-              title="Watch: Understanding Keyhole Surgery" 
-              description="Dr Prashantkumar explains the benefits of arthroscopic repair for athletes and active adults."
+              videoId="aEKSNe7myak" 
+              title="Watch: ACL Tear Recovery & Rehab Journey" 
+              description="Dr Prashantkumar explains the step-by-step recovery and rehabilitation timeline following arthroscopic ACL reconstruction."
             />
 
             <ProcedureBlocks serviceKey="arthroscopy" />

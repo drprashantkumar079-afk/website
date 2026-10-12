@@ -12,9 +12,9 @@ const FEATURED_ARTICLE_IDS = [
 ];
 
 const FEATURED_VIDEO_IDS = [
+  'video-suvarna-neuropathic-pain',
   'video-acl-recovery',
   'video-prp-knee',
-  'video-hip-fracture',
 ];
 
 function getFeaturedArticles() {

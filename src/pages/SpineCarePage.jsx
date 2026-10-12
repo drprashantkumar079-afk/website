@@ -115,9 +115,9 @@ export default function SpineCarePage() {
             </div>
 
             <VideoEmbed 
-              videoId="PLACEHOLDER" 
-              title="Watch: Asianet Suvarna News Feature" 
-              description="Dr Prashantkumar discusses non-surgical interventions for sciatica and nerve health on national television."
+              videoId="Wp0qqyQVQxE" 
+              title="Watch: Asianet Suvarna News 'Dear Doctor' Broadcast" 
+              description="Dr Prashantkumar explains the root causes of burning sensations, tingling, numbness, neuropathic pain, and evidence-based non-surgical spine care."
             />
 
             <ProcedureBlocks serviceKey="spinecare" />

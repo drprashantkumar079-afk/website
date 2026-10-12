@@ -1,5 +1,5 @@
-import React from 'react';
-import { Tv, Newspaper, ExternalLink, Mic, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { Tv, Newspaper, ExternalLink, Mic, Award, Play, ListVideo } from 'lucide-react';
 import { DOCTOR_INFO } from '../data/doctorData';
 
 const mediaCoverage = [
@@ -7,15 +7,17 @@ const mediaCoverage = [
     logo: '📺',
     network: 'Asianet Suvarna News Kannada',
     program: '"Dear Doctor" Public Health Broadcast',
-    headline: 'Expert Orthopedic Speaker on Nerve & Joint Health',
-    description: 'Dr Prashantkumar was invited as a featured expert on the widely-watched Suvarna News "Dear Doctor" program in June 2026, educating thousands of viewers on sciatica, cervical spondylosis, and non-surgical spine care.',
-    date: 'June 2026',
-    type: 'Television',
+    headline: 'Burning, Tingling, Numbness & Neuropathic Pain Talk',
+    description: 'Dr Prashantkumar was invited as a featured orthopedic expert on Asianet Suvarna News "Dear Doctor" program, educating thousands of viewers across Karnataka on neuropathic pain, sciatica, burning sensations, numbness, and non-surgical nerve and spine care.',
+    date: 'Asianet Suvarna News',
+    type: 'Television Broadcast',
     color: '#dc2626',
     bg: 'rgba(220,38,38,0.08)',
     icon: Tv,
     image: '/Images/kannada-prabha.jpg',
-    link: 'https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw'
+    videoId: 'Wp0qqyQVQxE',
+    videoUrl: 'https://www.youtube.com/watch?v=Wp0qqyQVQxE',
+    playlistUrl: 'https://youtube.com/playlist?list=PLaHlnUPOMw0Q&si=KVQUmrjfdYuCZlQl'
   },
   {
     logo: '📰',
@@ -62,6 +64,8 @@ const mediaCoverage = [
 ];
 
 export default function MediaCoverage() {
+  const [isPlayingVideo, setIsPlayingVideo] = useState(false);
+
   return (
     <section id="media" className="section-padding" style={{ background: '#ffffff' }}>
       <div className="container">
@@ -81,7 +85,7 @@ export default function MediaCoverage() {
           </p>
         </div>
 
-        {/* Featured TV Appearance - Side-by-side card with 100% image visibility */}
+        {/* Featured TV Appearance - Side-by-side card with live video embed option */}
         <div style={{
           borderRadius: '24px',
           overflow: 'hidden',
@@ -90,38 +94,80 @@ export default function MediaCoverage() {
           boxShadow: '0 20px 40px rgba(15,23,42,0.08)',
           marginBottom: '3rem',
           display: 'grid',
-          gridTemplateColumns: 'minmax(280px, 420px) 1fr',
+          gridTemplateColumns: 'minmax(280px, 460px) 1fr',
           gap: '0'
         }} className="media-featured-hero">
           <div style={{
             position: 'relative',
-            background: '#f8fafc',
+            background: '#0f172a',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '1.5rem'
+            padding: isPlayingVideo ? '0' : '1.5rem',
+            minHeight: '380px'
           }}>
-            <img
-              src={mediaCoverage[0].image}
-              alt="Dr Prashantkumar Kannada Prabha Studio Interview"
-              style={{
-                width: '100%',
-                maxHeight: '440px',
-                objectFit: 'contain',
-                borderRadius: '16px',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.1)'
-              }}
-            />
-            <div style={{
-              position: 'absolute', top: '24px', left: '24px',
-              background: '#dc2626', borderRadius: '8px', padding: '0.35rem 0.85rem',
-              fontSize: '0.75rem', fontWeight: '800', color: '#ffffff',
-              textTransform: 'uppercase', letterSpacing: '0.05em',
-              boxShadow: '0 4px 12px rgba(220,38,38,0.3)',
-              display: 'flex', alignItems: 'center', gap: '0.4rem'
-            }}>
-              <Tv size={14} /> LIVE Television Feature
-            </div>
+            {isPlayingVideo ? (
+              <div style={{ width: '100%', height: '100%', minHeight: '380px' }}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${mediaCoverage[0].videoId}?autoplay=1&rel=0`}
+                  title="Dr Prashantkumar — Asianet Suvarna News Dear Doctor"
+                  style={{ width: '100%', height: '100%', minHeight: '380px', border: 0 }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img
+                  src={mediaCoverage[0].image}
+                  alt="Dr Prashantkumar Asianet Suvarna News Dear Doctor Interview"
+                  style={{
+                    width: '100%',
+                    maxHeight: '440px',
+                    objectFit: 'contain',
+                    borderRadius: '16px',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.3)'
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => setIsPlayingVideo(true)}
+                  aria-label="Play Asianet Suvarna News broadcast"
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '68px',
+                    height: '68px',
+                    borderRadius: '50%',
+                    background: '#dc2626',
+                    color: '#ffffff',
+                    border: '3px solid #ffffff',
+                    boxShadow: '0 8px 28px rgba(220,38,38,0.6)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'transform 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.1)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.0)'; }}
+                >
+                  <Play size={28} fill="currentColor" style={{ marginLeft: '4px' }} />
+                </button>
+                <div style={{
+                  position: 'absolute', top: '16px', left: '16px',
+                  background: '#dc2626', borderRadius: '8px', padding: '0.35rem 0.85rem',
+                  fontSize: '0.75rem', fontWeight: '800', color: '#ffffff',
+                  textTransform: 'uppercase', letterSpacing: '0.05em',
+                  boxShadow: '0 4px 12px rgba(220,38,38,0.4)',
+                  display: 'flex', alignItems: 'center', gap: '0.4rem'
+                }}>
+                  <Tv size={14} /> LIVE Television Feature
+                </div>
+              </div>
+            )}
           </div>
 
           <div style={{
@@ -133,22 +179,49 @@ export default function MediaCoverage() {
             <div style={{ color: '#0284c7', fontSize: '0.88rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.5rem' }}>
               {mediaCoverage[0].network} • {mediaCoverage[0].date}
             </div>
-            <h3 style={{ color: 'var(--primary-navy)', fontSize: '1.75rem', fontWeight: '800', marginBottom: '1rem', lineHeight: 1.25 }}>
-              "Dear Doctor" Public Health Broadcast on Kannada Prabha / Suvarna News
+            <h3 style={{ color: 'var(--primary-navy)', fontSize: '1.75rem', fontWeight: '800', marginBottom: '0.75rem', lineHeight: 1.25 }}>
+              "Dear Doctor" Public Health Broadcast on Asianet Suvarna News
             </h3>
+            <p style={{ color: '#dc2626', fontWeight: '700', fontSize: '0.98rem', marginBottom: '0.75rem' }}>
+              Topic: Burning, Tingling, Numbness &amp; Neuropathic Pain
+            </p>
             <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-              Dr Prashantkumar was featured as the guest orthopedic expert on the widely watched "Dear Doctor" program. In this studio interview, he educated viewers across Karnataka on joint preservation, spine health, and modern non-surgical treatment options.
+              {mediaCoverage[0].description}
             </p>
 
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-              <a href={mediaCoverage[0].link} target="_blank" rel="noreferrer" className="btn btn-primary" style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', borderRadius: '12px'
-              }}>
-                <Tv size={16} /> Watch Broadcast <ExternalLink size={14} />
+            <div style={{ display: 'flex', gap: '0.85rem', alignItems: 'center', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                onClick={() => setIsPlayingVideo(true)}
+                className="btn btn-primary"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.4rem', borderRadius: '12px'
+                }}
+              >
+                <Play size={16} fill="currentColor" /> Play Interview
+              </button>
+              <a
+                href={mediaCoverage[0].videoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-outline"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.3rem', borderRadius: '12px'
+                }}
+              >
+                <Tv size={16} /> Open on YouTube <ExternalLink size={14} />
               </a>
-              <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: '600' }}>
-                Kannada Prabha Media Appearance
-              </span>
+              <a
+                href={mediaCoverage[0].playlistUrl}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.75rem 1.2rem', borderRadius: '12px',
+                  background: 'rgba(2,132,199,0.08)', color: '#0284c7', fontWeight: 700, fontSize: '0.88rem', textDecoration: 'none'
+                }}
+              >
+                <ListVideo size={16} /> Suvarna Media Playlist <ExternalLink size={14} />
+              </a>
             </div>
           </div>
         </div>

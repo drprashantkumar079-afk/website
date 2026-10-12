@@ -11,6 +11,8 @@ export const DOCTOR_INFO = {
   satisfactionRate: "99.4%",
   socialLinks: {
     youtubeChannel: "https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw",
+    suvarnaPlaylist: "https://youtube.com/playlist?list=PLaHlnUPOMw0Q&si=KVQUmrjfdYuCZlQl",
+    suvarnaFeaturedVideo: "https://www.youtube.com/watch?v=Wp0qqyQVQxE",
     facebook: "https://www.facebook.com/share/1C22HRDbm8/?mibextid=wwXIfr",
     facebookPage: "https://www.facebook.com/dr.prashantkumar23",
     instagram: "https://www.instagram.com/dr.prashantkumar23",
@@ -33,8 +35,11 @@ export const DOCTOR_INFO = {
     {
       mediaName: "Asianet Suvarna News Kannada",
       program: "'Dear Doctor' Public Health Broadcast",
-      topic: "Nerve Health, Sciatica & Joint Alignment Secrets",
-      date: "June 2026"
+      topic: "Burning, Tingling, Numbness & Neuropathic Pain",
+      youtubeUrl: "https://www.youtube.com/watch?v=Wp0qqyQVQxE",
+      playlistUrl: "https://youtube.com/playlist?list=PLaHlnUPOMw0Q&si=KVQUmrjfdYuCZlQl",
+      videoId: "Wp0qqyQVQxE",
+      date: "Asianet Suvarna News"
     },
     {
       mediaName: "National Orthopedic Press & Regional Dailies",
@@ -344,7 +349,7 @@ export const SOCIAL_POSTERS = [
     image: "/Images/health-camp.jpg",
     title: "Nerve Health & Sciatica Live Session",
     caption: "Live Q&A on Asianet Suvarna News stream addressing sciatica, slip disc non-surgical recovery, and neck ergonomics for IT professionals.",
-    link: "https://www.youtube.com/channel/UCw9E_H95SrJf4yKK0tag1rw",
+    link: "https://www.youtube.com/watch?v=Wp0qqyQVQxE",
     likes: "3.8k",
     comments: "310"
   },
@@ -439,6 +444,24 @@ export const ARTICLES = [
 ];
 
 export const VIDEOS = [
+  {
+    id: "video-suvarna-neuropathic-pain",
+    title: "Burning, Tingling, Numbness | Neuropathic Pain — Asianet Suvarna News",
+    duration: "Live Broadcast",
+    category: "Spine Care",
+    youtubeId: "Wp0qqyQVQxE",
+    thumbnail: "https://i.ytimg.com/vi/Wp0qqyQVQxE/hqdefault.jpg",
+    doctorPic: "/Images/doctor-portrait-suit.jpg",
+    youtubeUrl: "https://www.youtube.com/watch?v=Wp0qqyQVQxE",
+    playlistUrl: "https://youtube.com/playlist?list=PLaHlnUPOMw0Q&si=KVQUmrjfdYuCZlQl",
+    badge: "Suvarna News Live",
+    description: "Dr Prashantkumar featured on Asianet Suvarna News 'Dear Doctor' discussing burning sensations, nerve tingling, numbness and non-surgical spine care.",
+    highlights: [
+      "Asianet Suvarna News 'Dear Doctor' Broadcast",
+      "Neuropathic pain, burning & tingling symptoms",
+      "Non-surgical spine decompression and nerve care"
+    ]
+  },
   {
     id: "video-acl-recovery",
     title: "ACL tear recovery — week-by-week journey",

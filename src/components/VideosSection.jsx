@@ -24,7 +24,7 @@ function handleImageError(event, fallbackSrc) {
 
 export default function VideosSection({ onSelectVideo }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [activeVideoId, setActiveVideoId] = useState(VIDEOS[0]?.youtubeId || 'aEKSNe7myak');
+  const [activeVideoId, setActiveVideoId] = useState(VIDEOS[0]?.youtubeId || 'Wp0qqyQVQxE');
   const activeVideo = VIDEOS.find((v) => v.youtubeId === activeVideoId) || VIDEOS[0];
 
   const categories = useMemo(
@@ -51,7 +51,7 @@ export default function VideosSection({ onSelectVideo }) {
           <p className="section-kicker">Video Hub</p>
           <h2>Watch on YouTube — {activeVideo.title}</h2>
           <p className="section-lead">
-            Real clinic videos — ACL recovery, knee PRP, fractures, hip fixation and more. Click any video below to play.
+            Real clinic videos — Asianet Suvarna News public health talks, ACL recovery, knee PRP, fractures, hip fixation and more. Click any video below to play.
           </p>
         </header>
 
@@ -65,23 +65,49 @@ export default function VideosSection({ onSelectVideo }) {
           />
         </div>
 
-        <a
-          href={activeVideo.youtubeUrl || DOCTOR_INFO.socialLinks.youtubeChannel}
-          target="_blank"
-          rel="noreferrer"
-          className="youtube-banner"
-        >
-          <div className="youtube-banner-icon">
-            <Youtube size={28} fill="currentColor" />
-          </div>
-          <div className="youtube-banner-copy">
-            <strong>Dr Prashantkumar Ortho Care</strong>
-            <span>Subscribe for surgical lectures, Suvarna News talks &amp; recovery guides</span>
-          </div>
-          <span className="youtube-banner-cta">
-            Open on YouTube <ExternalLink size={16} />
-          </span>
-        </a>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem', margin: '1.5rem 0 2.5rem 0' }}>
+          <a
+            href={activeVideo.youtubeUrl || DOCTOR_INFO.socialLinks.youtubeChannel}
+            target="_blank"
+            rel="noreferrer"
+            className="youtube-banner"
+            style={{ margin: 0 }}
+          >
+            <div className="youtube-banner-icon">
+              <Youtube size={28} fill="currentColor" />
+            </div>
+            <div className="youtube-banner-copy">
+              <strong>Dr Prashantkumar Ortho Care</strong>
+              <span>Subscribe for surgical lectures &amp; recovery guides</span>
+            </div>
+            <span className="youtube-banner-cta">
+              Open on YouTube <ExternalLink size={16} />
+            </span>
+          </a>
+
+          <a
+            href={DOCTOR_INFO.socialLinks.suvarnaPlaylist}
+            target="_blank"
+            rel="noreferrer"
+            className="youtube-banner"
+            style={{
+              margin: 0,
+              background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+              borderColor: 'rgba(220,38,38,0.4)'
+            }}
+          >
+            <div className="youtube-banner-icon" style={{ background: '#dc2626', color: '#ffffff' }}>
+              <Youtube size={28} fill="currentColor" />
+            </div>
+            <div className="youtube-banner-copy">
+              <strong style={{ color: '#ffffff' }}>Asianet Suvarna News Playlist</strong>
+              <span style={{ color: '#cbd5e1' }}>Watch "Dear Doctor" nerve &amp; spine public health broadcast</span>
+            </div>
+            <span className="youtube-banner-cta" style={{ background: '#dc2626', color: '#ffffff' }}>
+              Watch Playlist <ExternalLink size={16} />
+            </span>
+          </a>
+        </div>
 
         <div className="filter-row videos-filters" role="tablist" aria-label="Video categories">
           {categories.map((cat) => (
@@ -126,7 +152,12 @@ export default function VideosSection({ onSelectVideo }) {
                   <span className="video-duration">
                     <Clock size={12} /> {video.duration}
                   </span>
-                  <span className="video-cat">{video.category}</span>
+                  <span
+                    className="video-cat"
+                    style={video.badge ? { background: '#dc2626', color: '#ffffff', fontWeight: 700 } : {}}
+                  >
+                    {video.badge || video.category}
+                  </span>
                 </button>
                 <div className="video-body">
                   <h3>
